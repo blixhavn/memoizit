@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
 from typing import Any, List
 
-class StorageBackend(ABC):
 
+class StorageBackend(ABC):
     @abstractmethod
-    def get(key: str) -> Any:
+    def get(self, key: str) -> Any:
         pass
 
     @abstractmethod
@@ -12,5 +12,9 @@ class StorageBackend(ABC):
         pass
 
     @abstractmethod
-    def keys(self, key_pattern: str) -> List[str]:
+    def delete(self, key: str) -> int:
+        pass
+
+    @abstractmethod
+    def keys_startswith(self, key_start: str) -> List[str]:
         pass

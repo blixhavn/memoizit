@@ -1,0 +1,51 @@
+#!/bin/bash
+REPO_ROOT_DIR="$(git rev-parse --show-toplevel)"
+REPORT_STRING=""
+
+RESULT=0
+EXISTING_UNSTAGED_CHANGES=`git diff --name-only`
+if [ $EXISTING_UNSTAGED_CHANGES ]; then
+  if black --quiet --check --config "${REPO_ROOT_DIR}/pyproject.toml" "${REPO_ROOT_DIR}"; then
+    REPORT_STRING+="Black ✔ | "
+    true
+  else
+    REPORT_STRING+="Black ❌ | "
+    RESULT+=1
+  fi
+else
+  black --quiet --config "${REPO_ROOT_DIR}/pyproject.toml" "${REPO_ROOT_DIR}"
+  NEW_UNSTAGED_CHANGES=`git diff --name-only`
+  if [ $NEW_UNSTAGED_CHANGES ]; then
+    git add -u
+    REPORT_STRING+="Black 💪 | "
+  else
+    REPORT_STRING+="Black ✔ | "
+  fi
+fi
+
+mypy "${REPO_ROOT_DIR}" > /dev/null
+MYPY_RESULT=$?
+if [[ $MYPY_RESULT -eq 1 ]]; then
+  REPORT_STRING+="Mypy ❌ | "
+  RESULT+=1
+else
+  REPORT_STRING+="Mypy ✔ | "
+fi
+
+flake8 "${REPO_ROOT_DIR}" > /dev/null
+FLAKE8_RESULT=$?
+if [[ $FLAKE8_RESULT -eq 1 ]]; then
+  REPORT_STRING+="flake8 ❌"
+  RESULT+=1
+else
+  REPORT_STRING+="flake8 ✔"
+fi
+
+echo $REPORT_STRING
+
+if (( $RESULT > 0 )); then
+  echo "⚠ Commit aborted ⚠"
+  exit 1
+else
+  exit 0
+fi
