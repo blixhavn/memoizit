@@ -4,7 +4,7 @@ REPORT_STRING=""
 
 RESULT=0
 EXISTING_UNSTAGED_CHANGES=`git diff --name-only`
-if [ $EXISTING_UNSTAGED_CHANGES ]; then
+if [ ${#EXISTING_UNSTAGED_CHANGES[@]} ]; then
   if black --quiet --check --config "${REPO_ROOT_DIR}/pyproject.toml" "${REPO_ROOT_DIR}"; then
     REPORT_STRING+="Black ✔ | "
     true
@@ -15,7 +15,7 @@ if [ $EXISTING_UNSTAGED_CHANGES ]; then
 else
   black --quiet --config "${REPO_ROOT_DIR}/pyproject.toml" "${REPO_ROOT_DIR}"
   NEW_UNSTAGED_CHANGES=`git diff --name-only`
-  if [ $NEW_UNSTAGED_CHANGES ]; then
+  if [ ${#NEW_UNSTAGED_CHANGES[@]} ]; then
     git add -u
     REPORT_STRING+="Black 💪 | "
   else

@@ -2,46 +2,6 @@
 requires = ["setuptools >= 40.6.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-
-[project]
-name = "advanced-memoize"
-version = "1.0.0"
-description = "An advanced memoize library which can be used standalone, or plugged into key/value stores such as redis."
-authors = [
-    "Øystein Blixhavn <oystein@blixhavn.no>"
-]
-license = "MIT"
-readme = "README.md"
-python = "^3.6"
-homepage = "https://github.com/blixhavn/advanced_memoize"
-repository = "https://github.com/blixhavn/advanced_memoize"
-documentation = "https://github.com/blixhavn/advanced_memoize"
-
-keywords = ["memoize", "memoizing", "cache", "redis", "memory", "in-memory"]
-
-classifiers = [
-    "Topic :: Software Development"
-]
-
-# Requirements
-[dependencies]
-
-[dev-dependencies]
-black = { version = "^21.9b0", python = "^3.8" }
-types-redis = "3.5.8"
-
-[tool.mypy]
-python_version = "3.8"
-warn_return_any = true
-warn_unused_configs = true
-ignore_missing_imports = true
-exclude = "venv"
-
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "-ra -q"
-testpaths = ["tests"]
-
 [tool.black]
 line-length = 88
 target_version = ['py38']

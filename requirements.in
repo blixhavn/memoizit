@@ -1,0 +1,5 @@
+mypy==0.812
+pytest==6.2.1
+black==21.4b0
+redis==3.5.3
+pip-tools==6.2.0
