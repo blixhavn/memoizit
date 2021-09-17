@@ -2,20 +2,20 @@
 
 A memoize library which can be used standalone, or plugged into key/value stores such as Redis. Also contains functionality to invalidate cache based on function name and arguments.
 
-### Why use this one?
+## Why use this one?
 There are already several python libraries providing memoizing in some form, ranging from very basic dict caches, more [performance focused](https://github.com/gsakkis/memoized), to [very advanced](https://github.com/DreamLab/memoize), comprehensive libraries. However, I've caught myself writing this particular implementation in two separate projects, and I gathered I should extract it to a separate library. It has a couple of strengths:
 
 * **It is flexible** - the two arguments `unique_on` and `conditions` provide a powerful configurability in how and what you actually want to memoize, making it ideal in situations where memoization is introduced to speed up legacy code. Paired with the `invalidate_memoize` function, there's no limit to how specific you can have your caching be.
 
 * **It is extendable** - currently shipped only with support for dict-type cache and Redis, it is very easy to write new extensions for other storage alternatives. The test blueprints are even already written!
 
-### Basic installation
+## Basic installation
 Using Memoizit completely bare with in-memory caching:
 ```
 pip install memoizit
 ```
 
-##### With Redis
+#### With Redis
 If you want to (be able to) use Redis as cache storage:
 
 ```
@@ -23,7 +23,7 @@ pip install memoizit[redis]
 ```
 
 
-### Setup
+## Setup
 ```
 from memoizit import Memoizer
 
@@ -34,7 +34,7 @@ def heavy_calculation(n):
     return n**n
 ```
 
-##### With Redis
+#### With Redis
 Default configuration looks for Redis at `localhost:6379`. If this matches your setup, simply run
 ```
 m = Memoizer(backend="redis")
@@ -57,7 +57,7 @@ m = Memoizer(
 )
 ```
 
-### Usage
+## Usage
 
 #### Memoize
 The memoize decorator has three arguments:
@@ -66,7 +66,7 @@ The memoize decorator has three arguments:
 * **conditions** - list of arguments and conditional values that need to match in order to apply memoization.
 
 
-###### Example use case
+##### Example use case
 ```
 class Office:
 
@@ -106,3 +106,34 @@ m.invalidate_memoize("perform_miracle", 2, target="dogs")
 ```
 
 This function can be particulary useful when memoizing `read` functions from an API wrapper, where you want to invalidate the cache on `update` or `delete`.
+
+## Contributing
+Clone repo:
+```
+git clone git@github.com:blixhavn/memoizit.git
+```
+Set up virtual environment and activate it:
+```
+python -m virtualenv venv
+source venv/bin/activate
+```
+Install with dev requirements:
+
+```
+pip install -e .[dev]
+```
+
+Run tests and code checks as follows:
+```
+black .
+mypy .
+flake8
+pytest 
+```
+The Redis tests are skipped unless Redis is available at `localhost:6379`.
+
+Then, create a pull request with your work! For your convenience there is also a `pre-commit` file that can be copied into `.git/hooks/`, which will run black, mypy and flake8 before allowing commits. Note however that this does not work in Windows.
+
+## License
+
+Memoizit is released under the MIT license. Have at it.
