@@ -61,7 +61,7 @@ m = Memoizer(
 
 #### Memoize
 The memoize decorator has three arguments:
-* **expiration** - seconds until the memoized value is invalidated.
+* **expiration** - seconds until the memoized value is invalidated (default 300 - 5 minutes).
 * **unique_on** - arguments to include in the cache key. Can be both args and kwargs (mainly useful to avoid `self` arguments in class methods). If ignored, all arguments will be used.
 * **conditions** - list of arguments and conditional values that need to match in order to apply memoization.
 
@@ -71,6 +71,7 @@ The memoize decorator has three arguments:
 class Office:
 
     @m.memoize(
+        expiration=60*60*24,
         unique_on=['department', 'include_management'],
         conditions=[('with_sideeffects', False)]
     )
