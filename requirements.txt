@@ -14,6 +14,8 @@ click==8.0.1
     # via
     #   black
     #   pip-tools
+coverage==5.5
+    # via pytest-cov
 iniconfig==1.1.1
     # via pytest
 mypy==0.812
@@ -37,6 +39,10 @@ py==1.10.0
 pyparsing==2.4.7
     # via packaging
 pytest==6.2.1
+    # via
+    #   -r requirements.in
+    #   pytest-cov
+pytest-cov==2.12.1
     # via -r requirements.in
 redis==3.5.3
     # via -r requirements.in
@@ -46,6 +52,7 @@ toml==0.10.2
     # via
     #   black
     #   pytest
+    #   pytest-cov
 tomli==1.2.1
     # via pep517
 typed-ast==1.4.3
