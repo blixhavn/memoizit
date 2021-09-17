@@ -111,10 +111,11 @@ This function can be particulary useful when memoizing `read` functions from an 
 Clone repo:
 ```
 git clone git@github.com:blixhavn/memoizit.git
+cd memoizit
 ```
 Set up virtual environment and activate it:
 ```
-python -m virtualenv venv
+python3 -m virtualenv venv
 source venv/bin/activate
 ```
 Install with dev requirements:
