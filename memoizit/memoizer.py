@@ -6,17 +6,30 @@ import logging
 import pickle
 from typing import Any, Callable, List, Optional, Tuple, Union
 
-from .storage import StorageBackend, PythonBackend, RedisBackend
+from .storage.backend import StorageBackend
+from .storage.python_backend import PythonBackend
+
+storage_options = {"python": PythonBackend}
+
+try:
+    from .storage.redis_backend import RedisBackend
+
+    storage_options["redis"] = RedisBackend
+except ImportError:
+    pass
 
 log = logging.getLogger(__name__)
 
 
 class Memoizer:
     def __init__(self, backend: str = "python", **kwargs):
-        self.storage: StorageBackend = {
-            "python": PythonBackend,
-            "redis": RedisBackend,
-        }.get(backend, PythonBackend)(**kwargs)
+        storage_backend: StorageBackend = storage_options.get(backend)
+        if not storage_backend:
+            raise Exception(
+                f"Storage backend for {backend} not found. Have you installed the proper requirements?"
+            )
+
+        self.storage = storage_backend(**kwargs)
 
     def memoize(
         self,

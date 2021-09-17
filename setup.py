@@ -28,13 +28,14 @@ setuptools.setup(
     },
     classifiers=[
         "Development Status :: 4 - Beta",
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3 :: Only",
+        "Topic :: Software Development :: Libraries",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
+        "Intended Audience :: Developers",
     ],
     packages=setuptools.find_packages("."),
     python_requires=">=3.6",
-    install_requires=[
-        "redis>=3.5.3",
-    ],
+    install_requires=None,
+    extras_require={"redis": ["redis>=3.5.3"]},
 )
