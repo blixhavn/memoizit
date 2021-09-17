@@ -37,5 +37,15 @@ setuptools.setup(
     packages=setuptools.find_packages("."),
     python_requires=">=3.6",
     install_requires=None,
-    extras_require={"redis": ["redis>=3.5.3"]},
+    extras_require={
+        "redis": ["redis>=3.5.3"],
+        "dev": [
+            "mypy==0.812",
+            "pytest==6.2.1",
+            "pytest-cov==2.12.1",
+            "black==21.4b0",
+            "flake8==3.9.2",
+            "redis>=3.5.3",
+        ],
+    },
 )
