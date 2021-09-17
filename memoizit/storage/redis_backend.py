@@ -19,6 +19,7 @@ class RedisBackend(StorageBackend):
         kwargs.setdefault("password", env_password)
 
         self.r = redis.Redis(**kwargs)
+        self.r.ping()
 
     def get(self, key: str) -> Any:
         return self.r.get(key)
