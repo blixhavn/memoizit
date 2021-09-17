@@ -8,9 +8,17 @@ setuptools.setup(
     version="0.1.0",
     author="Øystein Blixhavn",
     author_email="oystein@blixhavn.no",
-    description="An advanced memoize library which can be used standalone, \
-    or plugged into key/value stores such as redis.",
-    keywords=["memoize", "memoizing", "cache", "redis", "memory", "in-memory"],
+    description="A memoize library which can be used standalone, or plugged into key/value stores such as redis. \
+    Also contains functionality to invalidate cache based on function name and arguments.",
+    keywords=[
+        "memoize",
+        "memoizing",
+        "cache",
+        "redis",
+        "memory",
+        "in-memory",
+        "invalidate",
+    ],
     license="MIT",
     long_description=long_description,
     long_description_content_type="text/markdown",
