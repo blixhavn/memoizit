@@ -2,7 +2,7 @@ import os
 from typing import Any, List, Optional
 import redis
 
-from storage.backend import StorageBackend
+from .backend import StorageBackend
 
 
 class RedisBackend(StorageBackend):

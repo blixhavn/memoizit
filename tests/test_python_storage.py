@@ -1,4 +1,4 @@
-from storage import PythonBackend
+from memoizit.storage import PythonBackend
 from tests.storage_test_case import StorageTestCase
 
 

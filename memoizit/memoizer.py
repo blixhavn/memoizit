@@ -6,7 +6,7 @@ import logging
 import pickle
 from typing import Any, Callable, List, Optional, Tuple, Union
 
-from storage import StorageBackend, PythonBackend, RedisBackend
+from .storage import StorageBackend, PythonBackend, RedisBackend
 
 log = logging.getLogger(__name__)
 

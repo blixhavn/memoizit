@@ -1,7 +1,7 @@
 import time
 from typing import Any, List, Optional
 
-from storage.backend import StorageBackend
+from .backend import StorageBackend
 
 
 class PythonBackend(StorageBackend):

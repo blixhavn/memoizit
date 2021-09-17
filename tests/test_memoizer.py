@@ -1,7 +1,7 @@
 from unittest import mock
 from unittest.case import TestCase
 
-from memoize import Memoizer
+from memoizit import Memoizer
 
 
 class TestMemoizer(TestCase):

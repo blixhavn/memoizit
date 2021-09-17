@@ -1,7 +1,7 @@
-from storage import RedisBackend
-import unittest
 from redis.exceptions import ConnectionError
+import unittest
 
+from memoizit.storage import RedisBackend
 from tests.storage_test_case import StorageTestCase
 
 
