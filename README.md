@@ -1,4 +1,4 @@
-# Memoizit ![Build badge](https://github.com/blixhavn/memoizit/actions/workflows/ci.yml/badge.svg)  [![codecov](https://codecov.io/gh/blixhavn/memoizit/branch/main/graph/badge.svg?token=FAY3S48JGU)](https://codecov.io/gh/blixhavn/memoizit)
+# Memoizit [![PyPI version](https://badge.fury.io/py/memoizit.svg)](https://pypi.org/project/memoizit/) ![Build badge](https://github.com/blixhavn/memoizit/actions/workflows/ci.yml/badge.svg)  [![codecov](https://codecov.io/gh/blixhavn/memoizit/branch/main/graph/badge.svg?token=FAY3S48JGU)](https://codecov.io/gh/blixhavn/memoizit)
 
 A memoize library which can be used standalone, or plugged into key/value stores such as Redis. Also contains functionality to invalidate cache based on function name and arguments.
 
