@@ -1,1 +1,1 @@
-![Build badge](https://github.com/blixhavn/memoizit/actions/workflows/ci.yml/badge.svg)
+![Build badge](https://github.com/blixhavn/memoizit/actions/workflows/ci.yml/badge.svg)  [![codecov](https://codecov.io/gh/blixhavn/memoizit/branch/main/graph/badge.svg?token=FAY3S48JGU)](https://codecov.io/gh/blixhavn/memoizit)
