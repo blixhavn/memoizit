@@ -1,5 +1,7 @@
 mypy==0.812
 pytest==6.2.1
+pytest-cov==2.12.1
 black==21.4b0
+flake8==3.9.2
 redis==3.5.3
 pip-tools==6.2.0
