@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="memoizit",
-    version="0.1.0",
+    version="1.0.0",
     author="Øystein Blixhavn",
     author_email="oystein@blixhavn.no",
     description="A memoize library which can be used standalone, or plugged into key/value stores such as redis. \
