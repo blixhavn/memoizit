@@ -11,8 +11,8 @@ on:
 
 jobs:
   build:
-
-    runs-on: redis
+    runs-on: ubuntu-latest
+    container: redis:latest
 
     steps:
     - uses: actions/checkout@v2
