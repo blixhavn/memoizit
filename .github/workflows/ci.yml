@@ -21,6 +21,8 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          - 6379:6379
 
     steps:
     - uses: actions/checkout@v2
@@ -45,6 +47,3 @@ jobs:
     - name: Pytest
       run: |
         python -m pytest .
-      env:
-          REDIS_HOST: redis
-          REDIS_PORT: 6379
