@@ -1,0 +1,1 @@
+![Build badge](https://github.com/blixhavn/memoizit/actions/workflows/ci.yml/badge.svg)
