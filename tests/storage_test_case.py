@@ -1,7 +1,7 @@
 import time
 from unittest.case import TestCase
 
-from memoizit.storage import StorageBackend
+from memoizit.storage.backend import StorageBackend
 
 
 class StorageTestCase(TestCase):
